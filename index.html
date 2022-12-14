@@ -9,6 +9,10 @@
     </head>
 
     <body style="margin: 0; overflow: hidden;">
+
+		<div class="arjs-loader">
+    			<div>Loading, please wait...</div>
+  		</div>
         <a-scene
             vr-mode-ui="enabled: false;"
             loading-screen="enabled: true;"
@@ -19,10 +23,17 @@
             gesture-detector
         >
             <a-assets>
+
                 <a-asset-item
                     id="animated-asset"
                     src="assets/asset.glb"
                 ></a-asset-item>
+
+                <a-asset-item
+                    id="mountain-asset"
+                    src="assets/mountain.glb"
+                ></a-asset-item>
+
             </a-assets>
 
             <a-marker
@@ -46,12 +57,23 @@
                     gesture-handler
                 ></a-entity>
 
-		    <a-image
+                <a-entity
+                    id="mountain-model"
+                    scale="10 10 10"
+                    animation-mixer="loop: repeat"
+			  position="0 0 1"
+			  rotation="-90 0 0"
+                    gltf-model="#mountain-asset"
+                    class="clickable"
+                    gesture-handler
+                ></a-entity>
+
+		    <a-video
                     src="assets/asset.mp4"
                     scale="1 1 1"
                     class="clickable"
                     rotation="-90 0 0"
-                ></a-image>
+                ></a-video>
             </a-marker>
 
             <a-entity camera></a-entity>
