@@ -7,6 +7,6 @@
 
 掃描以下目標圖片:
 
-![pattern-2 (自訂)](https://user-images.githubusercontent.com/106337749/207804975-1d7ed603-710f-47e9-bc44-af67fe2a92c0.png)
+![pattern-2 (1)](https://user-images.githubusercontent.com/106337749/207805623-d339a9cd-1705-49cf-9d25-71c058829011.png)
 
 便可看到簡單的AR效果
