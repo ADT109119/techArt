@@ -62,6 +62,7 @@
                     gltf-model="#animated-asset"
                     class="clickable"
                     gesture-handler
+                    onclick="playBearSound()"
                 ></a-entity>
 
                 <a-entity
@@ -88,6 +89,11 @@
         </a-scene>
 
         <script>
+
+            function playBearSound(){
+                document.querySelector("#bearSound").play();
+            }
+
             AFRAME.registerComponent('markerhandler', {
 
             init: function() {
@@ -98,7 +104,7 @@
                 animatedMarker.addEventListener('click', function(ev, target){
                     const intersectedElement = ev && ev.detail && ev.detail.intersectedEl;
                     if (aEntity && intersectedElement === aEntity) {
-                        document.querySelector("#bearSound").play();
+                        playBearSound()
                     }
                 });
             }});
