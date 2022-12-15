@@ -39,6 +39,8 @@
                     src="assets/mountain.glb"
                 ></a-asset-item>
 
+                <audio id="bearSound" src="assets/sound.mp3" preload="auto"></audio>
+
             </a-assets>
 
             <a-marker
@@ -73,7 +75,7 @@
                     gesture-handler
                 ></a-entity>
 
-		    <a-video
+		        <a-video
                     src="assets/asset.mp4"
                     scale="1 1 1"
                     class="clickable"
@@ -81,7 +83,25 @@
                 ></a-video>
             </a-marker>
 
+            <!--a-entity sound="src: #bearSound" autoplay="false"></a-entity-->
             <a-entity camera></a-entity>
         </a-scene>
+
+        <script>
+            AFRAME.registerComponent('markerhandler', {
+
+            init: function() {
+                const animatedMarker = document.querySelector("#animated-marker");
+                const aEntity = document.querySelector("#bowser-model");
+
+                // every click, we make our model grow in size :)
+                animatedMarker.addEventListener('click', function(ev, target){
+                    const intersectedElement = ev && ev.detail && ev.detail.intersectedEl;
+                    if (aEntity && intersectedElement === aEntity) {
+                        document.querySelector("#bearSound").play();
+                    }
+                });
+            }});
+        </script>
     </body>
 </html>
